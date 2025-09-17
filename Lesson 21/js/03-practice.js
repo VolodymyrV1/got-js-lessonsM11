@@ -16,23 +16,60 @@
 // 4 Середню температуру в Цельсія (avgtemp_c)
 // Приклад картки https://prnt.sc/h_p-A6Hty-i-
 
-const BASE_URL = "http://api.weatherapi.com/v1";
-const API_KEY = "6410346f89264d6e919165208231505";
+// const BASE_URL = "http://api.weatherapi.com/v1";
+// const API_KEY = "6410346f89264d6e919165208231505";
 
-const form = document.querySelector(".js-search-form");
-const list = document.querySelector(".js-list");
+// const form = document.querySelector(".js-search-form");
+// const list = document.querySelector(".js-list");
 
-form.addEventListener("submit", handlerSubmit);
+// form.addEventListener("submit", handlerSubmit);
 
 
-function handlerSubmit(event) {
-    event.preventDefault();
+// function handlerSubmit(event) {
+//     event.preventDefault();
 
-    const { city, days } = event.target.elements;
-    console.log(days);
+//     const { city, days } = event.target.elements;
     
-}
+//     serviceWeather(city.value, days.value)
+//         .then(data => {
+//             console.log(data);
+//             list.innerHTML = createMarkup(data.forecast.forecastday);       
+//         })
+//         .catch(error => {
+//             console.log(error);
+//         })
+//         .finally(() => {
+//             event.target.reset();
+//         })
+// }
 
-function serviceWeather(city ="", days = 1) {
+// function serviceWeather(city = "", days = 1) {
+//     const params = new URLSearchParams({
+//         key: API_KEY,
+//         q: city,
+//         days: days,
+//         lang: "uk"
+//     });
+
+//     return fetch(`${BASE_URL}/forecast.json?${params}`)
+//         .then((res) => {
+//             if(!res.ok) {
+//                 throw new Error(res.status)
+//             }
+            
+//             return res.json();
+//         })
     
-}
+// }
+
+// function createMarkup(arr) {
+//     return arr.map(({ date, day: { avgtemp_c, condition: { icon, text } } }) => `
+//         <li class="weather-card">
+//             <img src="${icon}" alt="${text}" class="weather-icon"/>
+//             <h3 class="weather-date">${date}</h3>
+//             <h2 class="weather-text">${text}</h2>
+//             <h3 class="temperature">${avgtemp_c} C</h3>
+//         </li>
+    
+//     `).join("")
+// }
